@@ -73,6 +73,7 @@ class Game {
 
     handleInteraction(button){
         const guessedLetter = button.textContent;
+        button.disabled = true;
         if (this.activePhrase.checkLetter(guessedLetter)){
             button.classList.add("chosen");
             this.activePhrase.showMatchedLetter(guessedLetter);
@@ -95,6 +96,7 @@ class Game {
         //re-enable keyboard buttons
         const keyboardButtons = document.querySelectorAll(".key");
         keyboardButtons.forEach(button =>{
+            button.disabled = false;
             button.classList.remove("chosen", "wrong");
         });
 
